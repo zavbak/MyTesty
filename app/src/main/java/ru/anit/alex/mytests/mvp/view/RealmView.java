@@ -8,6 +8,7 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
 
 public interface RealmView extends MvpView {
+
     @StateStrategyType(AddToEndSingleStrategy.class)
     void showTvMessageView(@NonNull CharSequence text);
 }
