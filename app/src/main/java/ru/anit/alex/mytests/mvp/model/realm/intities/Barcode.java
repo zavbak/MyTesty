@@ -14,6 +14,22 @@ public class Barcode extends RealmObject {
     int places;
     float weight;
 
+
+    public Barcode() {
+    }
+
+    public Barcode(Builder barcodeBuilder) {
+        this.id = barcodeBuilder.id;
+        this.barcode = barcodeBuilder.barcode;
+        this.places = barcodeBuilder.places;
+        this.weight = barcodeBuilder.weight;
+    }
+
+    public static Builder getBuilder() {
+        return new Barcode().new Builder();
+    }
+
+
     public long getId() {
         return id;
     }
@@ -46,6 +62,7 @@ public class Barcode extends RealmObject {
         this.weight = weight;
     }
 
+
     @Override
     public String toString() {
         return "Barcode{" +
@@ -54,5 +71,44 @@ public class Barcode extends RealmObject {
                 ", places=" + places +
                 ", weight=" + weight +
                 '}';
+    }
+
+
+    public  class Builder {
+
+        long id;
+        String barcode;
+        int places;
+        float weight;
+
+        public Builder() {
+        }
+
+        public Builder setBarcode(String barcode) {
+            this.barcode = barcode;
+            return this;
+        }
+
+        public Builder setPlaces(int places) {
+            this.places = places;
+            return this;
+        }
+
+        public Builder setWeight(float weight) {
+            this.weight = weight;
+            return this;
+        }
+
+        public Barcode build() {
+            isValidateEmployeeData();
+            return new Barcode(this);
+        }
+
+        private boolean isValidateEmployeeData() {
+            //Do some basic validations to check
+            return true;
+        }
+
+
     }
 }

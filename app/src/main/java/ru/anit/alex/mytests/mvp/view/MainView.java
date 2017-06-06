@@ -21,12 +21,12 @@ public interface MainView extends MvpView {
     @StateStrategyType(SkipStrategy.class)
     void showSnackbarView(@NonNull CharSequence text);
 
-    @StateStrategyType(SkipStrategy.class)
+    @StateStrategyType(AddToEndSingleStrategy.class)
     void setTitleView(@NonNull CharSequence text);
 
     @StateStrategyType(OneExecutionStateStrategy.class)
     void setFragmentFragmentRelmView();
 
-    @StateStrategyType(AddToEndSingleStrategy.class)
+    @StateStrategyType(OneExecutionStateStrategy.class)
     void setFragmentHelloView();
 }

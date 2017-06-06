@@ -23,6 +23,11 @@ public class HelloPr extends MvpPresenter<HelloView> {
     @Inject
     Context appContext;
 
+    @Override
+    protected void onFirstViewAttach() {
+        super.onFirstViewAttach();
+    }
+
     public HelloPr() {
         App.getAppComponent().injectHelloPr(this);
     }

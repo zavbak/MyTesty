@@ -13,13 +13,13 @@ import ru.anit.alex.mytests.app.App;
 import ru.anit.alex.mytests.mvp.view.MainView;
 
 
-
-
 @InjectViewState
-public class MainPr extends MvpPresenter<MainView>{
+public class MainPr extends MvpPresenter<MainView> {
 
     @Inject
     Context mAppContext;
+
+    int mCurentId;
 
     public MainPr() {
         App.getAppComponent().injectMainPr(this);
@@ -38,11 +38,13 @@ public class MainPr extends MvpPresenter<MainView>{
 
     public void onNavigationItemSelected(int id) {
         if (id == R.id.nav_start) {
+
             getViewState().setFragmentHelloView();
             getViewState().setTitleView(mAppContext.getResources().getString(R.string.text_title_hello)); //Не работает
+
+
         } else if (id == R.id.nav_realm) {
             getViewState().setFragmentFragmentRelmView();
-
 
         } else if (id == R.id.nav_slideshow) {
 
@@ -54,4 +56,6 @@ public class MainPr extends MvpPresenter<MainView>{
 
         }
     }
+
+
 }

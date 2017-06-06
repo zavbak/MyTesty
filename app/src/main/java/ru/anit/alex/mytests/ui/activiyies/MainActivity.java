@@ -124,9 +124,11 @@ public class MainActivity extends MvpAppCompatActivity
     @Override
     public void setFragmentFragmentRelmView() {
 
+        getFragmentManager().findFragmentById(R.id.fragment);
+
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fragment, FragmentRelm.getInstance())
+                .replace(R.id.fragment, FragmentRelm.getInstance(),FragmentRelm.TAG)
                 .commit();
     }
 

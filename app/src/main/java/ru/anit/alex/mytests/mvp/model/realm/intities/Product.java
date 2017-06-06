@@ -19,6 +19,9 @@ public class Product extends RealmObject {
 
     private RealmList<Barcode> barcodes;
 
+
+
+
     public long getId() {
         return id;
     }

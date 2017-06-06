@@ -45,7 +45,7 @@ public class RealmPr extends MvpPresenter<RealmView> {
 
                 String strMessage = "Show barcode: \n";
 
-                for(Barcode barcode: list){
+                for (Barcode barcode : list) {
                     strMessage = strMessage + "\n" + barcode.toString();
                 }
 
@@ -58,12 +58,14 @@ public class RealmPr extends MvpPresenter<RealmView> {
     }
 
     public void onClickBtAddBarcode() {
-        Barcode barcode = new Barcode();
-        barcode.setBarcode("56456456456456");
-        barcode.setPlaces(1);
-        barcode.setWeight((float) 2.5);
+        Barcode barcode = Barcode.getBuilder()
+                .setBarcode("654654564")
+                .setWeight((float) 10.5)
+                .setPlaces(3)
+                .build();
 
-        SaveBarcodeInteractor interactor = new SaveBarcodeInteractor(barcode,0);
+
+        SaveBarcodeInteractor interactor = new SaveBarcodeInteractor(barcode, 0);
         interactor.execute(new Subscriber() {
             @Override
             public void onCompleted() {

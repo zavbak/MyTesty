@@ -25,6 +25,8 @@ import ru.anit.alex.mytests.mvp.view.RealmView;
 
 public class FragmentRelm extends MvpAppCompatFragment implements RealmView {
 
+    public static final String TAG = "FragmentRelm";
+
     @InjectPresenter
     RealmPr mPresenter;
 
