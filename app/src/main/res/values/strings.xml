@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MyTests</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="text_hello">"This aplication for tests"</string>
+    <string name="text_title_hello">"Hello"</string>
+
+
+</resources>
