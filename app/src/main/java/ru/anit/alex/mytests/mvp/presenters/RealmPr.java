@@ -6,10 +6,12 @@ import com.arellomobile.mvp.MvpPresenter;
 import java.util.List;
 
 import ru.anit.alex.mytests.mvp.model.realm.Interacrors.realm.barcode.GetAllBarcodeInteracor;
+import ru.anit.alex.mytests.mvp.model.realm.Interacrors.realm.barcode.SaveBarcodeInt;
 import ru.anit.alex.mytests.mvp.model.realm.Interacrors.realm.barcode.SaveBarcodeInteractor;
 import ru.anit.alex.mytests.mvp.model.realm.intities.Barcode;
 import ru.anit.alex.mytests.mvp.view.RealmView;
 import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.internal.util.ActionSubscriber;
 
 /**
@@ -65,23 +67,14 @@ public class RealmPr extends MvpPresenter<RealmView> {
                 .build();
 
 
-        SaveBarcodeInteractor interactor = new SaveBarcodeInteractor(barcode, 0);
-        interactor.execute(new Subscriber() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(Object o) {
-
-            }
-        });
+        SaveBarcodeInt interactor = new SaveBarcodeInt(barcode, 0);
+        interactor.execute().
+                subscribeOn(AndroidSchedulers.mainThread()) //Schedulers.io()
+                .observeOn(AndroidSchedulers.mainThread()) //AndroidSchedulers.mainThread()
+                .subscribe(
+                        barcode1 -> onClickShowState()
+                        , throwable ->
+                                getViewState().showTvMessageView(throwable.getMessage()));
 
 
     }
